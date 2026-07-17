@@ -1,9 +1,3 @@
-export interface IPaginationOptions {
-  page?: number;
-  limit?: number;
-  sortBy?: string;
-  sortOrder?: "asc" | "desc";
-}
 
 export interface IPaginationResult {
   page: number;
@@ -11,6 +5,12 @@ export interface IPaginationResult {
   skip: number;
   sortBy: string;
   sortOrder: "asc" | "desc";
+}
+export interface IPaginationOptions {
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  sortOrder?: "asc" | "desc";
 }
 
 const calculatePagination = (
@@ -20,7 +20,6 @@ const calculatePagination = (
   const limit = Number(options.limit) || 10;
 
   const skip = (page - 1) * limit;
-
   return {
     page,
     limit,
