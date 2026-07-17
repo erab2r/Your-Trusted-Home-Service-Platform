@@ -1,16 +1,17 @@
 
+export interface IPaginationOptions {
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  sortOrder?: "asc" | "desc";
+}
+
 export interface IPaginationResult {
   page: number;
   limit: number;
   skip: number;
   sortBy: string;
   sortOrder: "asc" | "desc";
-}
-export interface IPaginationOptions {
-  page?: number;
-  limit?: number;
-  sortBy?: string;
-  sortOrder?: "asc" | "desc";
 }
 
 const calculatePagination = (
