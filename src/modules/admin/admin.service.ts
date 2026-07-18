@@ -157,9 +157,6 @@ const getBookingById = async (bookingId: string) => {
   });
 };
 
-
-
-
 export const adminService = {
   getAllUsers,
   getUserById,

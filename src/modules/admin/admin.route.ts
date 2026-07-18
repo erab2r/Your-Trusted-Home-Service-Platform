@@ -1,31 +1,3 @@
-// import express from "express";
-// import { Role } from "../../../generated/prisma/enums";
-// import { auth } from "../../middlewares/auth";
-// import { adminController } from "./admin.controller";
-// import { categoryController } from "../category/category.controller";
-
-// const router = express.Router();
-// router.get(
-//   "/users",
-//   auth(Role.ADMIN),
-//   adminController.getAllUsers
-// );
-// router.patch(
-//   "/users/:id",
-//   auth(Role.ADMIN),
-//   adminController.updateUserStatus
-// );
-// router.get(
-//   "/bookings",
-//   auth(Role.ADMIN),
-//   adminController.getAllBookings
-// );
-
-// export const adminRoutes = router;
-
-
-
-
 import express from "express";
 import { Role } from "../../../generated/prisma/enums";
 import { auth } from "../../middlewares/auth";
@@ -55,7 +27,6 @@ router.patch(
   adminController.updateUserStatus
 );
 
-//Bookings
 router.get(
   "/bookings",
   auth(Role.ADMIN),
