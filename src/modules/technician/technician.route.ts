@@ -14,7 +14,7 @@ router.get(
 router.patch(
   "/profile",
   auth(Role.TECHNICIAN),
-  technicianController.updateTechnicianProfile
+  technicianController.updateTechnicianProfile 
 );
 
 router.get("/", technicianController.getAllTechnicians);

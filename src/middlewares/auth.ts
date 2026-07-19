@@ -29,8 +29,6 @@ export const auth = (...requiredRoles: Role[]) => {
         (req.headers.authorization?.startsWith("Bearer ")
           ? req.headers.authorization.split(" ")[1]
           : req.headers.authorization);
-
-      // Token not found
       if (!token) {
         const error: any = new Error("You are not authorized.");
         error.statusCode = httpStatus.UNAUTHORIZED;
@@ -41,8 +39,6 @@ export const auth = (...requiredRoles: Role[]) => {
         token,
         config.jwt_access_secret
       );
-
-      // Invalid token
       if (!verifiedToken.success) {
         const error: any = new Error(verifiedToken.error);
         error.statusCode = httpStatus.UNAUTHORIZED;
@@ -52,7 +48,6 @@ export const auth = (...requiredRoles: Role[]) => {
       const { id, name, email, role } =
         verifiedToken.data as JwtPayload;
 
-      // Role permission check
       if (
         requiredRoles.length &&
         !requiredRoles.includes(role)
@@ -67,15 +62,11 @@ export const auth = (...requiredRoles: Role[]) => {
       const user = await prisma.user.findUnique({
         where: { id },
       });
-
-      // User not found
       if (!user) {
         const error: any = new Error("User not found.");
         error.statusCode = httpStatus.NOT_FOUND;
         throw error;
       }
-
-      // Blocked user
       if (user.activeStatus === "BLOCKED") {
         const error: any = new Error(
           "Your account has been blocked. Please contact the administrator."

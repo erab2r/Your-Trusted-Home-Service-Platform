@@ -24,6 +24,8 @@ import {
   verifyCheckoutSessionAndSyncPayment,
 } from "./payment.utils";
 
+
+
 const createCheckoutSession = async (
   userId: string,
   payload: ICreateCheckoutSession
@@ -33,6 +35,7 @@ const createCheckoutSession = async (
       id: payload.bookingId,
       customerId: userId,
     },
+    
     include: {
       service: true,
       payment: true,
