@@ -159,7 +159,7 @@ export const adminSchemas = {
   bookingIdParam: z.object({ bookingId: objectIdSchema }),
 };
 
-export const commonSchemas = {
+export const commonSchemasAll = {
   paginationQuery: z.object({
     page: z.string().trim().optional(),
     limit: z.string().trim().optional(),
