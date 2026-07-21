@@ -26,7 +26,7 @@ const createBooking = async (
   });
 
   if (availability.isBooked) {
-    throw new Error("This time slot is already booked.");
+    throw new Error("The selected schedule is already booked.");
   }
 
   if (availability.technicianId !== service.technicianId) {
